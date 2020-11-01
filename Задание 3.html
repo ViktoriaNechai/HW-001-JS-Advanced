@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    // Разработайте функцию-конструктор, которая будет создавать объект Human (человек), добавьте на свое
+    // усмотрение свойства и методы в этот объект. Подумайте, какие методы и свойства следует сделать уровня
+    // экземпляра, а какие уровня функции-конструктора.
+
+        var mark;
+        //Создадим объект human со свойствами name, age и job
+        function Human(name, job, age){
+            this.name = name;
+            this.job = job;
+            this.age = age;
+        }
+        
+        //Добавим объекту метод go()
+        Human.prototype.go = function () {
+        document.write(this.name+' идет.<br />');
+        var a = true;
+        return a;
+        }
+        //Добавим объекту метод sit()
+        Human.prototype.sit = function () {
+        document.write(this.name+' сел.<br />');
+        mark=true;
+        }
+        //Добавим объекту метод think()
+        Human.prototype.think = function () {
+        if (mark==true)
+            document.write(this.name+' начал мыслительную деятельность.<br />');
+        else 
+            document.write(this.name+' не может начать мыслительную деятельность на ходу.<br />');
+        }
+        Human.prototype.about= function () {
+        document.write('Персонажа зовут <b>'+this.name+'</b> профессия <b>'+this.job+'</b> и возраст <b>'+this.age+'</b> лет.');
+        }
+
+        var human= new Human('Дмитрий', 'Инженер', 26);
+        var human1= new Human('Иван', 'Логист', 26);
+                
+        //Обратимся к методам объекта human
+        human.go();
+        human.think();
+        human.sit();
+        human.think();
+        human.about();
+        document.write("<hr>");
+
+        human1.sit();
+        human1.think();
+        human1.about();
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

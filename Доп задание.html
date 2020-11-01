@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Box(h, w, d, m) {
+        this.height = h;
+        this.width = w;
+        this.depth = d;
+        this.material = m;
+        this.Volume = function () {
+        return this.height * this.width * this.depth;
+        }
+        }
+        Box.prototype.equals = function (b) {
+            if (this.material === b.material) {
+                return true}
+            else{
+                return false}
+        }
+        console.dir(Box);
+        var box1 = new Box(5,20,30,'glass');
+        var box2 = new Box(20,30,40,'wood');
+        var box3 = new Box(20,60,40,'paper');
+        var box4 = new Box(10,60,40,'paper');
+        console.log(box1);
+        console.log(box2);
+        console.log(box3);
+        console.log(box4);
+
+        document.write('Объем коробки 1 равен: ' + box1.Volume() + ' ' + '<br/>');
+        document.write('Объем коробки 2 равен: ' + box2.Volume() + ' ' + '<br/>');
+        document.write(box1.material + ' ' + '<br/>');
+        document.write(box2.material + ' ' + '<br/>');
+        document.write(box1.equals(box2) + ' ' + '<br/>');
+        document.write(box3.equals(box4) + ' ');
+    </script>
+</body>
+</html>

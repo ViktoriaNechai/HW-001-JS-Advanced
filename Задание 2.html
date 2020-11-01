@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    // Разработайте функцию-конструктор, которая будет создавать объект Human (человек). Создайте массив
+    // объектов и реализуйте функцию, которая будет сортировать элементы массива по значению свойства Age
+    // по возрастанию или по убыванию.
+
+        function Human(name, sex, age) {
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+        }
+ 
+        var John = new Human('John', 'male', 38);
+        var Pol = new Human('Pol', 'male', 22);
+        var Maria = new Human('Maria', 'female', 54);
+        var July = new Human('July', 'female', 25);
+        var Dima = new Human('Dima', 'male', 36);
+
+        var People = [John, Pol, Maria, July, Dima];
+         
+        for (var i = 0; i < People.length;i++) {
+            document.write("Данные о сотруднике: " + People[i].name + " , " + People[i].sex + " , " + People[i].age + "<br />");
+            
+        }
+        document.write("<hr />");
+
+        function SortAge(array, order) { // order = 'up'-по возрастанию; 'down'-по убыванию
+        if (order == "up") {               
+        People.sort(function(a,b) {
+            return a.age - b.age
+                        
+            })
+            console.log(People);           
+        }
+        if (order == "down") {               
+        People.sort(function(a,b){
+            return b.age - a.age 
+                        
+            }) 
+            console.log(People);          
+        }
+        }
+        function compare(a,b){
+        if (a.age < b.age)
+        return -1;
+        if (a.age > b.age)
+        return 1;
+        return 0;
+        }
+        People.sort(compare);
+        // вывести
+        for(i = 0; i< People.length; i++){
+            document.write("Имя: " + People[i].name + " , " + " Возраст: " + People[i].age + "<br />")
+        } 
+        
+        SortAge(People, 'up');
+        SortAge(People, 'down');
+        
+    </script>
+</head>
+<body>
+</body>
+</html>

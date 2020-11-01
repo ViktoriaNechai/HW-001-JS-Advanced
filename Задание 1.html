@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Создайте функцию конструктор, которая создает объект со свойством экземпляра, свойством функции-конструктора, с методом экземпляра и методом функции-конструктора. Имена выберите произвольно.
+        var Dog = function(name) {
+            // свойство экземпляра
+            this.name = name; 
+
+            var barkCount = 0;
+
+            this.bark = function() {
+                barkCount++;
+                alert(this.name + " лает");
+            }; //Метод экземпляра
+
+            this.getBarkCount = function() {
+                alert(this.name + " лаял " + barkCount + " раз");
+            };//Метод экземпляра
+        };
+
+        Dog.prototype.wagTail = function() {
+            alert(this.name + " вилял хвостом ");
+        };//Метод функции-конструктора  (аналог статическгого метода)
+
+        // свойство функции конструктора (аналог статических свойств)
+        Dog.minWeight = 1;
+
+        var dog = new Dog("Пятнышко");
+        dog.bark();
+        dog.bark();
+        dog.getBarkCount();
+        dog.wagTail();
+        alert("Вес животного" + Dog.minWeight + " килограмм")
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+

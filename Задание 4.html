@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Создайте пример демонстрирующий назначение метода toString().
+
+        function Person( firstName, secondName ) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        }
+
+        // создаем объект типа Person и инициализируем им переменную
+        let person = new Person( "Алексей", "Васильев" );
+
+        person.toString();
+        console.log(person);
+        document.write(person + "<br/>");  // "[object Object]"
+
+        // переопределяем метод toString() по умолчанию
+        Person.prototype.toString = function() {
+            return "Имя: " + this.firstName + "," + " Фамилия: " + this.secondName
+        };
+
+        person.toString();  
+        console.log(person);
+        document.write(person + "<br/>");// "Имя: Алексей, Фамилия: Васильев"
+
+        // создаем объект типа Person и инициализируем им переменную
+        let person2 = new Person( "Иван", "Ковалёв" );
+
+        person2.toString();  
+        console.log(person2);
+        document.write(person2 + "<br/>");// "Имя: Иван, Фамилия: Ковалёв"
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
